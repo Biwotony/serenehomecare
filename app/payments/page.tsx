@@ -1,0 +1,10 @@
+import { Icon } from "../components";
+import { Callout, PageIntro, SiteShell } from "../site-shell";
+
+export const metadata = { title: "Payment Safety | Serene Home Care Services", description: "Understand when and how Serene requests payment after assessment and an official invoice." };
+
+export default function PaymentsPage() {
+  return (
+    <SiteShell><main id="main-content"><PageIntro eyebrow="Payment guidance" title="Assessment first. Written plan and invoice before payment." description="Serene does not request card, mobile-money or bank information in an initial website form." /><section className="section"><div className="container payment-steps"><article><span>01</span><Icon name="clipboard" /><h2>Assessment</h2><p>The need, appropriate professional, proposed tasks and schedule are clarified first.</p></article><article><span>02</span><Icon name="document" /><h2>Written quotation</h2><p>Review the scope, price, timing and any terms before agreeing to care.</p></article><article><span>03</span><Icon name="shield" /><h2>Verified invoice</h2><p>Pay only using the method shown on an official invoice. Independently confirm unexpected changes.</p></article></div><div className="container fraud-guidance"><div><p className="eyebrow">Stay alert</p><h2>Pause if a payment request feels different</h2></div><ul className="check-list"><li><Icon name="check" size={19} /><span>Confirm any new account or phone number through <strong>0703 862 025</strong>.</span></li><li><Icon name="check" size={19} /><span>Check that the invoice matches the care plan and agreed dates.</span></li><li><Icon name="check" size={19} /><span>Do not send PINs, passwords or one-time security codes.</span></li><li><Icon name="check" size={19} /><span>Keep the invoice and payment confirmation for your records.</span></li></ul></div></section><section className="section"><div className="container"><Callout title="Need to verify an invoice?">Call the published Serene number before paying. Do not rely only on the contact details inside an unexpected message.</Callout></div></section></main></SiteShell>
+  );
+}
