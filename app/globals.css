@@ -43,7 +43,12 @@ body::before, body::after {
   content: "";
 }
 body::before {
+  inset: -3vmax;
   background: #071b37 url("/images/serene-site-background-v1.webp") center center / cover no-repeat;
+  transform: scale(1.06) translate3d(-.8%, -.4%, 0);
+  transform-origin: center;
+  animation: site-background-drift 32s ease-in-out infinite alternate;
+  will-change: transform;
 }
 body::after {
   z-index: -1;
@@ -345,8 +350,15 @@ p { margin-bottom: 18px; }
 .fade-in { animation: fade-in .65s ease both; }
 .hero-visual.fade-in { animation-delay: .12s; }
 @keyframes fade-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@keyframes site-background-drift {
+  0% { transform: scale(1.06) translate3d(-.8%, -.4%, 0); }
+  48% { transform: scale(1.1) translate3d(1%, .7%, 0); }
+  100% { transform: scale(1.08) translate3d(-.2%, 1.1%, 0); }
+}
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
+@media (prefers-reduced-motion: reduce) { body::before { animation: none !important; transform: scale(1.04); } }
 html[data-reduced-motion="true"] *, html[data-reduced-motion="true"] *::before, html[data-reduced-motion="true"] *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+html[data-reduced-motion="true"] body::before { transform: scale(1.04); }
 @media (prefers-reduced-motion: reduce) { .hero-background-video { visibility: hidden; } }
 html[data-reduced-motion="true"] .hero-background-video { visibility: hidden; }
 html[data-contrast="true"] { --navy: #001f52; --royal: #004fa7; --teal: #007e87; --muted: #273444; --border: #728399; }
