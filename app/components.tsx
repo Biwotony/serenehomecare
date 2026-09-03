@@ -77,9 +77,15 @@ export function Header() {
             <Icon name="message" size={19} /> WhatsApp
           </a>
         </nav>
-        <Link className="button button-primary header-cta" href="/#assessment">
-          Book assessment
-        </Link>
+        <div className="header-actions">
+          <a className="header-phone" href={`tel:${contact.phoneHref}`} aria-label={`Call Serene on ${contact.phoneDisplay}`}>
+            <span className="header-phone-icon"><Icon name="phone" size={18} /></span>
+            <span><small>Speak with Serene</small>{contact.phoneDisplay}</span>
+          </a>
+          <Link className="button button-primary header-cta" href="/#assessment">
+            Book assessment
+          </Link>
+        </div>
         <button
           className="menu-toggle"
           type="button"
