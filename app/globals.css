@@ -111,19 +111,19 @@ p { margin-bottom: 18px; }
 .hero-actions { margin-top: 32px; }
 .hero-assurance { display: flex; margin: 24px 0 0; align-items: flex-start; gap: 9px; color: #536176; font-size: .92rem; }
 .hero-assurance svg { flex: 0 0 auto; margin-top: 3px; color: var(--teal); }
-.hero-visual { position: relative; display: grid; min-height: 480px; place-items: center; }
-.hero-orbit { position: absolute; border: 1px solid rgba(21,101,192,.18); border-radius: 50%; }
-.orbit-one { width: 470px; height: 470px; }
-.orbit-two { width: 340px; height: 340px; border-color: rgba(0,166,178,.25); }
-.care-plan-card { position: relative; z-index: 2; width: min(380px, 84%); padding: 38px; border: 1px solid rgba(217,228,237,.9); border-radius: 28px; background: rgba(255,255,255,.94); box-shadow: var(--shadow-strong); backdrop-filter: blur(14px); }
-.care-plan-card::before { position: absolute; top: 0; right: 38px; left: 38px; height: 3px; border-radius: 0 0 8px 8px; background: linear-gradient(90deg, var(--royal), var(--teal)); content: ""; }
-.care-plan-card h2 { font-size: 1.7rem; }
+.hero-visual { position: relative; min-height: 520px; }
+.hero-video-frame { position: absolute; inset: 0 14px; overflow: hidden; border: 1px solid rgba(255,255,255,.2); border-radius: 32px; background: #0c2c35 url("/images/serene-hero-heart-poster.webp") center / cover no-repeat; box-shadow: var(--shadow-strong); }
+.hero-video-frame::after { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(4,22,31,.06), rgba(4,22,31,.16) 52%, rgba(4,22,31,.68)); content: ""; }
+.hero-background-video { width: 100%; height: 100%; object-fit: cover; object-position: center 52%; }
+.care-plan-card { position: absolute; z-index: 2; bottom: -28px; left: -22px; width: min(335px, 72%); padding: 28px; border: 1px solid rgba(217,228,237,.9); border-radius: 22px; background: rgba(255,255,255,.95); box-shadow: var(--shadow-strong); backdrop-filter: blur(14px); }
+.care-plan-card::before { position: absolute; top: 0; right: 28px; left: 28px; height: 3px; border-radius: 0 0 8px 8px; background: linear-gradient(90deg, var(--royal), var(--teal)); content: ""; }
+.care-plan-card h2 { font-size: 1.48rem; }
 .floating-note { position: absolute; z-index: 3; display: flex; min-height: 58px; padding: 12px 17px; align-items: center; gap: 10px; border: 1px solid rgba(217,228,237,.9); border-radius: 14px; background: rgba(255,255,255,.96); box-shadow: var(--shadow); color: var(--navy); font-size: .88rem; font-weight: 600; backdrop-filter: blur(10px); }
 .floating-note svg { color: var(--teal); }
-.note-one { top: 58px; right: 0; }
-.note-two { bottom: 54px; left: 0; }
+.note-one { top: 28px; right: -12px; }
+.note-two { right: -20px; bottom: 34px; }
 .icon-tile { display: inline-grid; width: 48px; height: 48px; place-items: center; border-radius: 12px; background: var(--teal-soft); color: var(--navy); }
-.icon-tile-large { width: 64px; height: 64px; margin-bottom: 20px; }
+.icon-tile-large { width: 56px; height: 56px; margin-bottom: 17px; }
 
 .trust-strip { position: relative; z-index: 4; margin-top: -34px; background: transparent; color: white; }
 .trust-grid { display: grid; overflow: hidden; grid-template-columns: repeat(4,1fr); border: 1px solid rgba(255,255,255,.12); border-radius: 20px; background: linear-gradient(115deg, #08295f, var(--navy)); box-shadow: 0 22px 55px rgba(11,46,107,.2); }
@@ -331,6 +331,8 @@ p { margin-bottom: 18px; }
 @keyframes fade-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
 html[data-reduced-motion="true"] *, html[data-reduced-motion="true"] *::before, html[data-reduced-motion="true"] *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+@media (prefers-reduced-motion: reduce) { .hero-background-video { visibility: hidden; } }
+html[data-reduced-motion="true"] .hero-background-video { visibility: hidden; }
 html[data-contrast="true"] { --navy: #001f52; --royal: #004fa7; --teal: #007e87; --muted: #273444; --border: #728399; }
 html[data-contrast="true"] .section-soft, html[data-contrast="true"] .profile-disclosure { background: #eef1f5; }
 
@@ -359,7 +361,11 @@ html[data-contrast="true"] .section-soft, html[data-contrast="true"] .profile-di
   .primary-nav .nav-phone, .primary-nav .nav-whatsapp { display: inline-flex; }
   .hero { padding: 76px 0 82px; }
   .hero-grid, .team-grid, .conversion-grid, .faq-layout, .split-heading, .cost-grid, .discharge-grid, .form-page-grid, .article-layout { grid-template-columns: 1fr; gap: 42px; }
-  .hero-visual { min-height: 430px; }
+  .hero-visual { min-height: 540px; }
+  .hero-video-frame { inset-inline: 56px; }
+  .care-plan-card { left: 24px; }
+  .note-one { right: 30px; }
+  .note-two { right: 24px; }
   .service-grid, .feature-grid, .review-principles, .process-grid, .resource-cards, .payment-steps { grid-template-columns: 1fr 1fr; }
   .process-grid::before { display: none; }
   .care-finder { grid-template-columns: 1fr; }
@@ -386,12 +392,11 @@ html[data-contrast="true"] .section-soft, html[data-contrast="true"] .profile-di
   .hero { padding-top: 62px; }
   .hero-actions, .button-group { flex-direction: column; }
   .hero-actions .button, .callout .button { width: 100%; }
-  .hero-visual { min-height: 380px; }
-  .orbit-one { width: 360px; height: 360px; }
-  .orbit-two { width: 280px; height: 280px; }
-  .care-plan-card { width: 85%; padding: 26px; }
-  .note-one { top: 28px; right: 0; }
-  .note-two { bottom: 26px; left: 0; }
+  .hero-visual { min-height: 520px; }
+  .hero-video-frame { inset-inline: 0; border-radius: 26px; }
+  .care-plan-card { right: 12px; bottom: -18px; left: 12px; width: auto; padding: 24px; }
+  .note-one { top: 18px; right: -4px; }
+  .note-two { display: none; }
   .floating-note { font-size: .78rem; }
   .trust-grid, .service-grid, .feature-grid, .review-principles, .process-grid, .detail-grid, .two-column-copy, .comparison-grid, .resource-cards, .payment-steps, .fraud-guidance { grid-template-columns: 1fr; }
   .trust-grid > div { min-height: 94px; border-right: 0; border-bottom: 1px solid rgba(255,255,255,.18); }

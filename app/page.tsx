@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CareFinder, EnquiryForm, Icon } from "./components";
+import { CareFinder, EnquiryForm, HeroBackgroundVideo, Icon } from "./components";
 import { FeatureCard, ServiceCard, SiteShell } from "./site-shell";
 import { commonFaqs, contact, services } from "./site-data";
 
@@ -21,8 +21,7 @@ export default function Home() {
               <p className="hero-assurance"><Icon name="clock" size={19} /> We acknowledge enquiries {contact.responseTime}. No medical history is requested online.</p>
             </div>
             <div className="hero-visual fade-in" aria-label="A calm visual summary of Serene’s care planning">
-              <div className="hero-orbit orbit-one" aria-hidden="true" />
-              <div className="hero-orbit orbit-two" aria-hidden="true" />
+              <HeroBackgroundVideo />
               <div className="care-plan-card">
                 <span className="icon-tile icon-tile-large"><Icon name="home" size={31} /></span>
                 <p className="eyebrow">Your care plan</p>
