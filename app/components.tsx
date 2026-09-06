@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { FormEvent, useEffect, useRef, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { contact, IconName, navigation, services } from "./site-data";
 
 export function Icon({ name, size = 24 }: { name: IconName; size?: number }) {
@@ -150,56 +150,6 @@ export function MobileActionBar() {
     <div className="mobile-action-bar" aria-label="Quick contact">
       <a href={`tel:${contact.phoneHref}`}><Icon name="phone" size={21} /> Call</a>
       <a href={contact.whatsapp} target="_blank" rel="noreferrer"><Icon name="message" size={21} /> WhatsApp</a>
-    </div>
-  );
-}
-
-export function HeroBackgroundVideo() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const root = document.documentElement;
-
-    const syncPlayback = () => {
-      const video = videoRef.current;
-      if (!video) return;
-      const shouldPause = motionPreference.matches || root.dataset.reducedMotion === "true";
-      if (shouldPause) {
-        video.pause();
-        video.currentTime = 0;
-      } else {
-        void video.play().catch(() => undefined);
-      }
-    };
-
-    const observer = new MutationObserver(syncPlayback);
-    observer.observe(root, { attributes: true, attributeFilter: ["data-reduced-motion"] });
-    motionPreference.addEventListener("change", syncPlayback);
-    syncPlayback();
-
-    return () => {
-      observer.disconnect();
-      motionPreference.removeEventListener("change", syncPlayback);
-    };
-  }, []);
-
-  return (
-    <div className="hero-video-frame" aria-hidden="true">
-      <video
-        ref={videoRef}
-        className="hero-background-video"
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="metadata"
-        poster="/images/serene-hero-heart-poster.webp"
-        tabIndex={-1}
-      >
-        <source src="/videos/serene-hero-heart.webm" type="video/webm" />
-        <source src="/videos/serene-hero-heart.mp4" type="video/mp4" />
-      </video>
     </div>
   );
 }
