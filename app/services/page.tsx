@@ -1,11 +1,13 @@
 import { CareFinder } from "../components";
 import { Callout, PageIntro, ServiceCard, SiteShell } from "../site-shell";
 import { services } from "../site-data";
+import { pageMetadata } from "../seo";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Home Care Services in Eldoret | Serene",
   description: "Explore Serene’s elderly care, recovery care, home nursing, respite, rehabilitation and maternal support in Eldoret.",
-};
+  path: "/services",
+});
 
 export default function ServicesPage() {
   return (

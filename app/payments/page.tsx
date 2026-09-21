@@ -1,7 +1,8 @@
 import { Icon } from "../components";
 import { Callout, PageIntro, SiteShell } from "../site-shell";
+import { pageMetadata } from "../seo";
 
-export const metadata = { title: "Payment Safety | Serene Home Care Services", description: "Understand when and how Serene requests payment after assessment and an official invoice." };
+export const metadata = pageMetadata({ title: "Payment Safety | Serene Home Care Services", description: "Understand when and how Serene requests payment after assessment and an official invoice.", path: "/payments" });
 
 export default function PaymentsPage() {
   return (

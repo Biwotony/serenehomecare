@@ -1,7 +1,8 @@
 import { commonFaqs, services } from "../site-data";
 import { Callout, PageIntro, SiteShell } from "../site-shell";
+import { pageMetadata } from "../seo";
 
-export const metadata = { title: "Home Care FAQs | Serene Eldoret", description: "Answers about home-care cost, timing, services, care professionals, safety and hospital discharge in Eldoret." };
+export const metadata = pageMetadata({ title: "Home Care FAQs | Serene Eldoret", description: "Answers about home-care cost, timing, services, care professionals, safety and hospital discharge in Eldoret.", path: "/faq" });
 
 export default function FaqPage() {
   const serviceFaqs = services.flatMap((service) => service.faqs.map((faq) => ({ ...faq, service: service.shortTitle })));

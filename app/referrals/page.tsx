@@ -1,8 +1,9 @@
 import { RoutedForm } from "../components";
 import { Icon } from "../components";
 import { PageIntro, SiteShell } from "../site-shell";
+import { pageMetadata } from "../seo";
 
-export const metadata = { title: "Healthcare Professional Referrals | Serene", description: "Start a home-care referral conversation with Serene Home Care Services in Eldoret without sending patient medical details online." };
+export const metadata = pageMetadata({ title: "Healthcare Professional Referrals | Serene", description: "Start a home-care referral conversation with Serene Home Care Services in Eldoret without sending patient medical details online.", path: "/referrals" });
 
 export default function ReferralsPage() {
   return (

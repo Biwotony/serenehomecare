@@ -160,22 +160,33 @@ type EnquiryFormProps = {
   source?: string;
 };
 
+type ContactMethod = "WhatsApp" | "Phone call";
+
 export function EnquiryForm({ title = "Book a care assessment", compact = false, source = "website" }: EnquiryFormProps) {
-  const [sent, setSent] = useState(false);
+  const [contactMethod, setContactMethod] = useState<ContactMethod>("WhatsApp");
+  const [sent, setSent] = useState<"whatsapp" | "phone" | null>(null);
 
   function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    const selectedMethod = data.get("contactMethod") as ContactMethod;
     const message = [
       "Hello Serene Home Care Services, I would like a care assessment.",
       `Name: ${data.get("name")}`,
       `Phone: ${data.get("phone")}`,
       `Care need: ${data.get("need")}`,
-      `Preferred contact: ${data.get("contactMethod")}`,
+      `Preferred contact: ${selectedMethod}`,
       `Source: ${source}`,
     ].join("\n");
+
+    if (selectedMethod === "Phone call") {
+      setSent("phone");
+      window.location.href = `tel:${contact.phoneHref}`;
+      return;
+    }
+
     window.open(`${contact.whatsapp}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
-    setSent(true);
+    setSent("whatsapp");
   }
 
   return (
@@ -204,7 +215,14 @@ export function EnquiryForm({ title = "Book a care assessment", compact = false,
         </label>
         <label>
           Preferred reply
-          <select name="contactMethod" defaultValue="WhatsApp">
+          <select
+            name="contactMethod"
+            value={contactMethod}
+            onChange={(event) => {
+              setContactMethod(event.target.value as ContactMethod);
+              setSent(null);
+            }}
+          >
             <option>WhatsApp</option>
             <option>Phone call</option>
           </select>
@@ -215,9 +233,11 @@ export function EnquiryForm({ title = "Book a care assessment", compact = false,
         <span>I agree that Serene may contact me about this enquiry. I understand this form is not for emergencies.</span>
       </label>
       <button className="button button-primary button-wide" type="submit">
-        <Icon name="calendar" size={20} /> Continue on WhatsApp
+        <Icon name={contactMethod === "Phone call" ? "phone" : "message"} size={20} />
+        {contactMethod === "Phone call" ? `Call ${contact.phoneDisplay}` : "Continue on WhatsApp"}
       </button>
-      {sent && <p className="form-status" role="status">WhatsApp opened with your enquiry. If it did not open, call {contact.phoneDisplay}.</p>}
+      {sent === "whatsapp" && <p className="form-status" role="status">WhatsApp opened with your enquiry. If it did not open, call {contact.phoneDisplay}.</p>}
+      {sent === "phone" && <p className="form-status" role="status">Your phone app should open to call {contact.phoneDisplay}.</p>}
     </form>
   );
 }

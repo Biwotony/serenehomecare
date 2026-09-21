@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { AccessibilityTools, Header, Icon, Logo, MobileActionBar } from "./components";
 import { contact, IconName, services } from "./site-data";
@@ -33,7 +34,6 @@ export function Footer() {
         <div>
           <h2>Information</h2>
           <ul>
-            <li><Link href="/how-care-works">How care works</Link></li>
             <li><Link href="/resources">Care resources</Link></li>
             <li><Link href="/careers">Careers</Link></li>
             <li><Link href="/referrals">Professional referrals</Link></li>
@@ -70,10 +70,37 @@ export function PageIntro({ eyebrow, title, description }: { eyebrow: string; ti
   );
 }
 
-export function ServiceCard({ service }: { service: (typeof services)[number] }) {
+export function TeamPortraits() {
   return (
-    <article className="service-card">
-      <span className="icon-tile"><Icon name={service.icon} /></span>
+    <div className="team-portraits" aria-label="Serene leadership">
+      <figure className="team-member-card">
+        <div className="team-member-photo">
+          <Image
+            src="/images/serene-team-member-2.webp"
+            alt="Cerine C., CEO of Serene Home Care Services, wearing blue clinical scrubs"
+            fill
+            sizes="(max-width: 900px) 88vw, 36vw"
+            unoptimized
+          />
+        </div>
+        <figcaption>
+          <Icon name="users" size={18} />
+          <span><strong>Cerine C.</strong><small>CEO</small></span>
+        </figcaption>
+      </figure>
+    </div>
+  );
+}
+
+export function ServiceCard({ service }: { service: (typeof services)[number] }) {
+  const prominenceClass = service.prominence ? ` service-card-${service.prominence}` : "";
+
+  return (
+    <article className={`service-card${prominenceClass}`}>
+      <div className="service-card-top">
+        <span className="icon-tile"><Icon name={service.icon} /></span>
+        {service.badge ? <span className="service-badge">{service.badge}</span> : null}
+      </div>
       <h3>{service.title}</h3>
       <p>{service.summary}</p>
       <Link className="text-link" href={`/services/${service.slug}`}>Explore this care <Icon name="arrow" size={18} /></Link>

@@ -1,7 +1,8 @@
 import { Icon } from "../components";
 import { Callout, PageIntro, SiteShell } from "../site-shell";
+import { pageMetadata } from "../seo";
 
-export const metadata = { title: "Home Care Guides | Serene Eldoret", description: "Practical guides for choosing home care, preparing for hospital discharge and supporting family caregivers." };
+export const metadata = pageMetadata({ title: "Home Care Guides | Serene Eldoret", description: "Practical guides for choosing home care, preparing for hospital discharge and supporting family caregivers.", path: "/resources" });
 
 const guides = [
   { id: "choosing-care", icon: "shield" as const, label: "Choosing care", title: "Questions to ask before inviting a care professional into the home", intro: "Good care should be easy to explain and verify.", items: ["What exact tasks will be included—and excluded?", "Does the work need a caregiver, nurse or rehabilitation professional?", "Which identity, reference and credential checks were completed?", "Who supervises the work and receives concerns?", "How are consent, records and family updates managed?", "What happens if the regular professional is unavailable?"] },

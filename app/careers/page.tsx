@@ -1,7 +1,8 @@
 import { RoutedForm } from "../components";
 import { FeatureCard, PageIntro, SiteShell } from "../site-shell";
+import { pageMetadata } from "../seo";
 
-export const metadata = { title: "Careers at Serene Home Care Services", description: "Learn about Serene’s care standards and introduce yourself for caregiver, nursing, rehabilitation or coordination opportunities in Eldoret." };
+export const metadata = pageMetadata({ title: "Careers at Serene Home Care Services", description: "Learn about Serene’s care standards and introduce yourself for caregiver, nursing, rehabilitation or coordination opportunities in Eldoret.", path: "/careers" });
 
 export default function CareersPage() {
   return (

@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { EnquiryForm, Icon } from "../components";
 import { PageIntro, SiteShell } from "../site-shell";
+import { pageMetadata } from "../seo";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "How Home Care Works | Serene Eldoret",
   description: "Understand Serene’s assessment, care planning, costs, hospital discharge support and care review process.",
-};
+  path: "/how-care-works",
+});
 
 const dischargeChecklist = [
   "Written discharge summary and follow-up instructions",
@@ -42,7 +44,7 @@ export default function HowCareWorksPage() {
             <div className="checklist-card"><h3>Hospital-discharge checklist</h3><ul className="check-list">{dischargeChecklist.map((item) => <li key={item}><Icon name="check" size={19} /><span>{item}</span></li>)}</ul></div>
           </div>
         </section>
-        <section className="final-conversion"><div className="container conversion-grid"><div className="conversion-copy"><p className="eyebrow">Ready for the first step?</p><h2>Book a care assessment</h2><p>Share only the basics. A coordinator will follow up within one business day to understand the next step.</p></div><EnquiryForm source="how-care-works" compact /></div></section>
+        <section className="final-conversion"><div className="container conversion-grid"><div className="conversion-copy"><p className="eyebrow">Ready for the first step?</p><h2>Book a care assessment</h2><p>Share only the basics. A coordinator will follow up immediately to understand the next step.</p></div><EnquiryForm source="how-care-works" compact /></div></section>
       </main>
     </SiteShell>
   );

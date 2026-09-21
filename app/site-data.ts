@@ -4,7 +4,7 @@ export const contact = {
   whatsapp: "https://wa.me/254703862025",
   website: "SereneHomeCareServices.co.ke",
   location: "Eldoret, Kenya",
-  responseTime: "within one business day",
+  responseTime: "immediately",
 };
 
 export type IconName =
@@ -32,6 +32,8 @@ export type Service = {
   shortTitle: string;
   summary: string;
   icon: IconName;
+  prominence?: "primary" | "secondary";
+  badge?: string;
   forWhom: string[];
   tasks: string[];
   professional: string;
@@ -39,11 +41,13 @@ export type Service = {
   faqs: { question: string; answer: string }[];
 };
 
-export const services: Service[] = [
+export const services: Service[] = ([
   {
     slug: "elderly-dementia-care",
     title: "Elderly & dementia care",
     shortTitle: "Elderly care",
+    prominence: "secondary",
+    badge: "Ongoing home support",
     summary:
       "Respectful day-to-day support that helps older adults remain safe, comfortable and connected at home.",
     icon: "heart",
@@ -80,6 +84,8 @@ export const services: Service[] = [
     slug: "post-hospital-recovery",
     title: "Post-hospital & recovery care",
     shortTitle: "Recovery care",
+    prominence: "primary",
+    badge: "After hospital discharge",
     summary:
       "Practical support after discharge, coordinated around the hospital plan and the person’s recovery goals.",
     icon: "home",
@@ -256,7 +262,12 @@ export const services: Service[] = [
       },
     ],
   },
-];
+] satisfies Service[]).sort((a, b) => {
+  const rank = (service: Service) =>
+    service.prominence === "primary" ? 0 : service.prominence === "secondary" ? 1 : 2;
+
+  return rank(a) - rank(b);
+});
 
 export const commonFaqs = [
   {
@@ -267,7 +278,7 @@ export const commonFaqs = [
   {
     question: "How quickly can care start?",
     answer:
-      "Serene acknowledges enquiries within one business day. A start date is confirmed only after the needs assessment, safety checks and suitable staff availability.",
+      "Serene responds to enquiries immediately. A start date is confirmed only after the needs assessment, safety checks and suitable staff availability.",
   },
   {
     question: "What is the difference between a caregiver and a nurse?",

@@ -1,13 +1,30 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Icon } from "../../components";
 import { Callout, SiteShell } from "../../site-shell";
 import { services } from "../../site-data";
+import { pageMetadata } from "../../seo";
+
+type ServicePageProps = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
 }
 
-export default async function ServiceDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const service = services.find((item) => item.slug === slug);
+
+  if (!service) return {};
+
+  return pageMetadata({
+    title: `${service.title} in Eldoret | Serene`,
+    description: service.summary,
+    path: `/services/${service.slug}`,
+  });
+}
+
+export default async function ServiceDetailPage({ params }: ServicePageProps) {
   const { slug } = await params;
   const service = services.find((item) => item.slug === slug);
   if (!service) notFound();

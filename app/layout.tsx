@@ -1,28 +1,34 @@
 import type { Metadata } from "next";
+import "@fontsource/lato/latin-400.css";
+import "@fontsource/lato/latin-700.css";
+import "@fontsource/montserrat/latin-700.css";
+import "@fontsource/montserrat/latin-800.css";
+import "@fontsource/pt-sans/latin-400.css";
+import "@fontsource/pt-sans/latin-700.css";
+import "@fontsource/roboto/latin-500.css";
+import "@fontsource/roboto/latin-600.css";
+import "@fontsource/roboto/latin-700.css";
 import "./globals.css";
+import { localBusinessJsonLd, pageMetadata, siteUrl } from "./seo";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://SereneHomeCareServices.co.ke"),
+  metadataBase: new URL(siteUrl),
+  ...pageMetadata({
+    title: "Serene Home Care Services | Eldoret",
+    description:
+      "Professional home care in Eldoret, including elderly care, recovery support, home nursing, respite, rehabilitation and maternal support.",
+    path: "/",
+  }),
   title: {
     default: "Serene Home Care Services | Eldoret",
     template: "%s",
   },
-  description:
-    "Professional home care in Eldoret, including elderly care, recovery support, home nursing, respite, rehabilitation and maternal support.",
   keywords: [
     "home care Eldoret",
     "elderly care Eldoret",
     "home nursing Eldoret",
     "Serene Home Care Services",
   ],
-  openGraph: {
-    title: "Serene Home Care Services",
-    description: "Professional, person-centred home care in Eldoret.",
-    type: "website",
-    locale: "en_KE",
-    url: "https://SereneHomeCareServices.co.ke",
-    siteName: "Serene Home Care Services",
-  },
   other: {
     "codex-preview": "development",
   },
@@ -30,6 +36,9 @@ export const metadata: Metadata = {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
   },
+  verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
+    : undefined,
 };
 
 export default function RootLayout({
@@ -39,7 +48,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-KE">
-      <body>{children}</body>
+      <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+        />
+        {children}
+      </body>
     </html>
   );
 }
