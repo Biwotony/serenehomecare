@@ -4,7 +4,7 @@ import { pageMetadata } from "../seo";
 
 export const metadata = pageMetadata({
   title: "About Serene Home Care Services | Eldoret",
-  description: "Learn about Serene’s person-centred approach, staff checks, safeguarding and communication standards.",
+  description: "Serene Home Care Services provides home visits in Eldoret and surrounding areas, with 24-hour availability. Learn about our team and care standards.",
   path: "/about",
 });
 
@@ -12,7 +12,7 @@ export default function AboutPage() {
   return (
     <SiteShell>
       <main id="main-content">
-        <PageIntro eyebrow="About Serene" title="Care that respects the person, the home and the family" description="Serene exists to make home support easier to understand: who will help, what they will do, how safety is managed and when the plan will be reviewed." />
+        <PageIntro eyebrow="About Serene" title="Care that respects the person, the home and the family" description="Serene Home Care Services is a home-care provider with an office on Kenyatta Street in Eldoret, Kenya. We visit clients at home in Eldoret and surrounding areas, with 24-hour availability. Contact us on 0703 862 025 to discuss the support you need." />
         <section className="section">
           <div className="container team-grid">
             <TeamPortraits />
@@ -32,7 +32,7 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
-        <section className="section section-soft"><div className="container"><div className="section-heading centered"><p className="eyebrow">Care standards</p><h2>What Serene checks and documents</h2></div><div className="feature-grid"><FeatureCard icon="shield" title="Suitability and safeguarding">Identity, role-appropriate work history, references, conduct expectations and safeguarding awareness are reviewed before assignment.</FeatureCard><FeatureCard icon="medical" title="Professional scope">Clinical qualifications and current registration are verified where the work requires them. Caregivers are not presented as nurses.</FeatureCard><FeatureCard icon="clipboard" title="Accountable care plan">Tasks, risks, consent, contacts, records, escalation and review points are written down and agreed.</FeatureCard></div><div className="verification-note"><Icon name="document" /><p><strong>Publication notice</strong> The business registration/licence number, named leadership, exact physical address and confirmed opening hours should be added here after Serene supplies and verifies them. Eldoret is the currently confirmed public location.</p></div></div></section>
+        <section className="section section-soft"><div className="container"><div className="section-heading centered"><p className="eyebrow">Care standards</p><h2>What Serene checks and documents</h2></div><div className="feature-grid"><FeatureCard icon="shield" title="Suitability and safeguarding">Identity, role-appropriate work history, references, conduct expectations and safeguarding awareness are reviewed before assignment.</FeatureCard><FeatureCard icon="medical" title="Professional scope">Clinical qualifications and current registration are verified where the work requires them. Caregivers are not presented as nurses.</FeatureCard><FeatureCard icon="clipboard" title="Accountable care plan">Tasks, risks, consent, contacts, records, escalation and review points are written down and agreed.</FeatureCard></div><div className="verification-note"><Icon name="document" /><p><strong>Home visits in Eldoret and surrounding areas</strong> We are available 24 hours. Call 0703 862 025 to confirm coverage, the appropriate professional and arrangements for your visit. Home care is not an emergency response service.</p></div></div></section>
         <section className="section"><div className="container"><Callout title="Ask us to show the evidence relevant to your care">Trust should be specific. During assessment, ask about the assigned professional’s identity, qualifications, registration, checks, supervision and complaint route.</Callout></div></section>
       </main>
     </SiteShell>

@@ -62,6 +62,7 @@ export const localBusinessJsonLd = {
   telephone: contact.phoneHref,
   address: {
     "@type": "PostalAddress",
+    streetAddress: "Kenyatta Street",
     addressLocality: "Eldoret",
     addressCountry: "KE",
   },
