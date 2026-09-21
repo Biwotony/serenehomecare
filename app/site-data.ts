@@ -298,7 +298,7 @@ export const commonFaqs = [
   {
     question: "Which areas do you serve?",
     answer:
-      "Serene currently presents its service area as Eldoret, Kenya. Provide the exact neighbourhood during your enquiry so availability can be confirmed.",
+      "Serene provides home visits in Eldoret and surrounding areas. Provide the exact neighbourhood during your enquiry so availability can be confirmed.",
   },
   {
     question: "Can you support a hospital discharge?",

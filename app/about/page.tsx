@@ -20,10 +20,6 @@ export default function AboutPage() {
               <p className="eyebrow">Our team approach</p>
               <h2>The client should know who is coming and why</h2>
               <p>Before ongoing care, Serene explains the proposed professional’s name, role, verified qualifications or registration where relevant, tasks and supervision.</p>
-              <div className="profile-disclosure">
-                <strong>Staff profile verification</strong>
-                <p>Cerine C. is identified as Serene’s CEO. Professional or clinical qualifications are stated only after verification and consent.</p>
-              </div>
               <ul className="check-list">
                 <li><Icon name="check" size={19} /><span>Introduction before ongoing care</span></li>
                 <li><Icon name="check" size={19} /><span>Role boundaries recorded in the plan</span></li>
