@@ -2,7 +2,7 @@ export const contact = {
   phoneDisplay: "0703 862 025",
   phoneHref: "+254703862025",
   whatsapp: "https://wa.me/254703862025",
-  website: "SereneHomeCareServices.co.ke",
+  website: "serenehome.care",
   location: "Eldoret, Kenya",
   responseTime: "immediately",
 };
