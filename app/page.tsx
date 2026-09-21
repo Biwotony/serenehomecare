@@ -23,7 +23,7 @@ export default function Home() {
               <p className="lead">Daily support and qualified nursing care, matched to your needs.</p>
               <div className="button-group hero-actions">
                 <a className="button button-primary" href={`tel:${contact.phoneHref}`}><Icon name="phone" size={20} /> Call {contact.phoneDisplay}</a>
-                <Link className="button button-secondary" href="#assessment"><Icon name="calendar" size={20} /> Book an assessment</Link>
+                <a className="button button-secondary" href={contact.whatsapp} target="_blank" rel="noreferrer"><Icon name="message" size={20} /> WhatsApp us</a>
               </div>
               <p className="hero-assurance"><Icon name="clock" size={19} /> We reply {contact.responseTime}.</p>
             </div>
