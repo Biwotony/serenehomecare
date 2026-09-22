@@ -9,6 +9,7 @@ import "@fontsource/roboto/latin-500.css";
 import "@fontsource/roboto/latin-600.css";
 import "@fontsource/roboto/latin-700.css";
 import "./globals.css";
+import { MetaPixel } from "./meta-pixel";
 import { localBusinessJsonLd, pageMetadata, siteUrl } from "./seo";
 
 export const metadata: Metadata = {
@@ -57,6 +58,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
         />
         {children}
+        <MetaPixel />
       </body>
     </html>
   );

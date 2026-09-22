@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { FormEvent, useEffect, useState } from "react";
+import { trackMetaEvent } from "./meta-pixel";
 import { contact, IconName, navigation, services } from "./site-data";
 
 export function Icon({ name, size = 24 }: { name: IconName; size?: number }) {
@@ -178,11 +179,13 @@ export function EnquiryForm({ title = "Book a care assessment", compact = false,
     ].join("\n");
 
     if (selectedMethod === "Phone call") {
+      trackMetaEvent("Lead", { contact_method: "phone", source });
       setSent("phone");
       window.location.href = `tel:${contact.phoneHref}`;
       return;
     }
 
+    trackMetaEvent("Lead", { contact_method: "whatsapp", source });
     window.open(`${contact.whatsapp}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
     setSent("whatsapp");
   }
@@ -314,6 +317,10 @@ export function RoutedForm({ kind }: RoutedFormProps) {
           `Service requested: ${data.get("service")}`,
           "No patient-identifying or medical information was submitted through the website.",
         ];
+    trackMetaEvent(career ? "Contact" : "Lead", {
+      contact_method: "whatsapp",
+      source: career ? "career" : "professional_referral",
+    });
     window.open(`${contact.whatsapp}?text=${encodeURIComponent(lines.join("\n"))}`, "_blank", "noopener,noreferrer");
     setSent(true);
   }
