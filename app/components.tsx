@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { FormEvent, useEffect, useState } from "react";
 import { contact, IconName, navigation, services } from "./site-data";
 
@@ -44,10 +45,7 @@ export function Logo({ compact = false }: { compact?: boolean }) {
   return (
     <Link href="/" className="brand" aria-label="Serene Home Care Services home">
       <span className="brand-mark" aria-hidden="true">
-        <svg viewBox="0 0 44 44" fill="none">
-          <path d="M22 38S7 30.8 7 19.2C7 13.6 13.6 10 18 14.7L22 19l4-4.3C30.4 10 37 13.6 37 19.2 37 30.8 22 38 22 38Z" stroke="currentColor" strokeWidth="2.5" />
-          <path d="M13 23h5l2-4.2 4 8 2-3.8h5" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
+        <Image src="/serene-profile-logo.png" alt="" width={48} height={48} priority />
       </span>
       <span className="brand-copy">
         <strong>SERENE</strong>

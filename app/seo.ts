@@ -55,7 +55,7 @@ export const localBusinessJsonLd = {
   "@id": `${siteUrl}/#business`,
   name: "Serene Home Care Services",
   url: siteUrl,
-  logo: `${siteUrl}/favicon.svg`,
+  logo: `${siteUrl}/serene-profile-logo.png`,
   image: `${siteUrl}${socialImage.url}`,
   description:
     "Professional, person-centred home care including recovery support, elderly care, home nursing, respite, rehabilitation and maternal support in Eldoret.",

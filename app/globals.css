@@ -67,8 +67,8 @@ p { margin-bottom: 18px; }
 .site-header { position: sticky; z-index: 100; top: 0; border-bottom: 1px solid var(--border); background: rgba(255,255,255,.98); box-shadow: 0 6px 24px rgba(11,46,107,.035); backdrop-filter: blur(12px); }
 .header-inner { display: flex; min-height: 84px; align-items: center; gap: 20px; }
 .brand { display: inline-flex; min-width: max-content; align-items: center; gap: 9px; }
-.brand-mark { display: grid; width: 44px; height: 44px; place-items: center; border-radius: 14px; background: linear-gradient(145deg, var(--navy), #164d9b); box-shadow: 0 8px 20px rgba(11,46,107,.16); color: white; }
-.brand-mark svg { width: 33px; height: 33px; }
+.brand-mark { display: grid; width: 48px; height: 48px; flex: 0 0 auto; place-items: center; overflow: hidden; border-radius: 50%; background: white; box-shadow: 0 6px 18px rgba(11,46,107,.14); }
+.brand-mark img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .brand-copy { display: flex; flex-direction: column; }
 .brand-copy strong { color: var(--navy); font-size: 1.23rem; font-weight: 800; letter-spacing: .045em; line-height: 1; }
 .brand-copy small { margin-top: 4px; color: var(--royal); font-size: .77rem; font-weight: 600; line-height: 1; }
@@ -310,7 +310,7 @@ html[data-contrast="true"] .hero { background: #fff; }
 .fraud-guidance .check-list { margin: 0; }
 
 .site-footer { padding: 76px 0 28px; background: #061d46; color: #d6e1ef; }
-.site-footer .brand-mark { background: white; color: var(--navy); }
+.site-footer .brand-mark { background: white; }
 .site-footer .brand-copy strong { color: white; }
 .site-footer .brand-copy small { color: #65d1d6; }
 .footer-grid { display: grid; grid-template-columns: 1.4fr .9fr .9fr 1fr; gap: 44px; }

@@ -33,8 +33,9 @@ export const metadata: Metadata = {
     "codex-preview": "development",
   },
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: "/serene-profile-logo.png",
+    shortcut: "/serene-profile-logo.png",
+    apple: "/serene-profile-logo.png",
   },
   verification: {
     google:
