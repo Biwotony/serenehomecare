@@ -41,14 +41,22 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section" id="team">
+        <section className="section team-section" id="team">
           <div className="container team-grid">
             <TeamPortraits />
             <div className="team-copy">
               <p className="eyebrow">Our care team</p>
               <h2>Know who is coming to your home</h2>
-              <p>We introduce the assigned professional, explain their role and verify the credentials required for their work.</p>
-              <Link className="text-link" href="/about">About Serene <Icon name="arrow" size={18} /></Link>
+              <p>You should feel confident about every person who enters your home. Before care begins, we make the introduction and explain exactly what to expect.</p>
+              <ul className="check-list team-assurances">
+                <li><Icon name="check" size={20} /><span>Your assigned professional is introduced before the first visit.</span></li>
+                <li><Icon name="check" size={20} /><span>Their role and agreed care tasks are explained clearly.</span></li>
+                <li><Icon name="check" size={20} /><span>Credentials are checked for work that requires them.</span></li>
+              </ul>
+              <div className="team-actions">
+                <Link className="button button-primary" href="/about">Meet Serene</Link>
+                <Link className="text-link" href="/how-care-works">How care works <Icon name="arrow" size={18} /></Link>
+              </div>
             </div>
           </div>
         </section>

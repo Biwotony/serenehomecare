@@ -173,7 +173,8 @@ html[data-contrast="true"] .hero-actions .button-secondary { border-color: #001f
 .step-number { position: relative; z-index: 2; display: grid; width: 48px; height: 48px; place-items: center; border-radius: 50%; background: var(--navy); color: white; font-weight: 600; }
 .center-action { display: flex; margin-top: 38px; justify-content: center; }
 
-.team-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: 76px; align-items: center; }
+.team-section { background: linear-gradient(135deg, #f7fbff 0%, var(--white) 52%, #edf8fa 100%); }
+.team-grid { display: grid; grid-template-columns: minmax(320px,.82fr) minmax(0,1.18fr); gap: 48px; align-items: stretch; }
 .team-portraits { display: grid; width: 100%; max-width: 430px; margin-inline: auto; grid-template-columns: minmax(0,1fr); }
 .team-member-card { overflow: hidden; margin: 0; border: 1px solid var(--border); border-radius: 22px; background: var(--white); box-shadow: var(--shadow); }
 .team-member-photo { position: relative; overflow: hidden; aspect-ratio: 4/5; background: var(--blue-soft); }
@@ -183,6 +184,11 @@ html[data-contrast="true"] .hero-actions .button-secondary { border-color: #001f
 .team-member-card figcaption > span { display: flex; min-width: 0; flex-direction: column; }
 .team-member-card figcaption strong { color: var(--navy); font-family: "Montserrat", Arial, sans-serif; font-size: .88rem; }
 .team-member-card figcaption small { margin-top: 3px; color: var(--muted); font-size: .75rem; font-weight: 600; }
+.team-copy { display: flex; padding: clamp(34px,4vw,58px); flex-direction: column; justify-content: center; border: 1px solid var(--border); border-radius: 28px; background: rgba(255,255,255,.92); box-shadow: var(--shadow); }
+.team-copy > p:not(.eyebrow) { max-width: 650px; color: var(--muted); font-size: 1.08rem; }
+.team-copy .team-assurances { margin: 12px 0 28px; }
+.team-copy .team-assurances li { margin-bottom: 16px; color: #34445b; }
+.team-actions { display: flex; align-items: center; gap: 24px; }
 .check-list { margin: 24px 0; padding: 0; list-style: none; }
 .check-list li { display: flex; margin-bottom: 13px; align-items: flex-start; gap: 11px; }
 .check-list li > svg { flex: 0 0 auto; margin-top: 4px; padding: 2px; border-radius: 50%; background: var(--teal-soft); color: #008b95; }
@@ -421,6 +427,9 @@ html[data-contrast="true"] .section-soft, html[data-contrast="true"] .profile-di
   .finder-options { grid-template-columns: 1fr; }
   .finder-result { flex-direction: column; }
   .team-grid { gap: 36px; }
+  .team-copy { padding: 30px 24px; border-radius: 22px; }
+  .team-actions { flex-direction: column; align-items: stretch; gap: 18px; }
+  .team-actions .text-link { justify-content: center; }
   .form-grid { grid-template-columns: 1fr; }
   .enquiry-form { padding: 25px 20px; }
   .final-conversion { padding: 72px 0; }
