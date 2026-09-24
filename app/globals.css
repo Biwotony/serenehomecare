@@ -240,7 +240,6 @@ html[data-contrast="true"] .hero-actions .button-secondary { border-color: #001f
 .page-visual { overflow: hidden; margin: 0; border: 1px solid var(--border); border-radius: 24px; background: var(--white); box-shadow: var(--shadow); }
 .page-visual-frame { position: relative; aspect-ratio: 16 / 7; overflow: hidden; background: var(--blue-soft); }
 .page-visual-frame img { object-fit: cover; object-position: center; }
-.page-visual figcaption { padding: 12px 18px; color: var(--muted); font-size: .78rem; text-align: right; }
 .service-hero { padding: 84px 0; background: var(--blue-soft); }
 .service-hero-grid { display: grid; grid-template-columns: 1fr auto; gap: 60px; align-items: center; }
 .service-hero-grid h1 { font-size: clamp(2.5rem, 5vw, 4.4rem); }
@@ -420,7 +419,6 @@ html[data-contrast="true"] .section-soft, html[data-contrast="true"] .profile-di
   .page-visual-section { padding-top: 24px; }
   .page-visual { border-radius: 18px; }
   .page-visual-frame { aspect-ratio: 4 / 3; }
-  .page-visual figcaption { padding: 10px 14px; }
   .service-grid, .feature-grid, .review-principles, .process-grid, .detail-grid, .two-column-copy, .comparison-grid, .resource-cards, .payment-steps, .fraud-guidance { grid-template-columns: 1fr; }
   .service-card, .feature-card { min-height: 0; padding: 24px; }
   .care-finder { padding: 27px 22px; }

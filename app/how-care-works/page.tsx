@@ -30,7 +30,6 @@ export default function HowCareWorksPage() {
               <div className="page-visual-frame">
                 <Image src="/images/serene-team-care-planning.webp" alt="Illustrative scene of a home-care nursing team discussing a care plan together" fill sizes="(max-width: 860px) 92vw, 1160px" unoptimized />
               </div>
-              <figcaption>Illustrative care team image</figcaption>
             </figure>
           </div>
         </section>
