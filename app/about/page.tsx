@@ -18,7 +18,7 @@ export default function AboutPage() {
           <div className="container">
             <figure className="page-visual">
               <div className="page-visual-frame">
-                <Image src="/images/serene-nursing-team-portrait.webp" alt="Illustrative portrait of a coordinated home-care nursing team" fill sizes="(max-width: 860px) 92vw, 1160px" unoptimized />
+                <Image src="/images/serene-nursing-team-portrait.webp" alt="Illustrative portrait of a coordinated home-care nursing team" fill sizes="(max-width: 860px) 92vw, 1160px" style={{ objectPosition: "center top" }} unoptimized />
               </div>
               <figcaption>Illustrative care team image</figcaption>
             </figure>

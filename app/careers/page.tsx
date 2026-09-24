@@ -14,7 +14,7 @@ export default function CareersPage() {
           <div className="container">
             <figure className="page-visual">
               <div className="page-visual-frame">
-                <Image src="/images/serene-nursing-team-walking.webp" alt="Illustrative scene of a home-care nursing team walking together" fill sizes="(max-width: 860px) 92vw, 1160px" unoptimized />
+                <Image src="/images/serene-nursing-team-walking.webp" alt="Illustrative scene of a home-care nursing team walking together" fill sizes="(max-width: 860px) 92vw, 1160px" style={{ objectPosition: "center top" }} unoptimized />
               </div>
               <figcaption>Illustrative care team image</figcaption>
             </figure>
