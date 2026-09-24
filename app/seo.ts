@@ -26,6 +26,17 @@ export function pageMetadata({
     title,
     description,
     alternates: { canonical: path },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      },
+    },
     openGraph: {
       title,
       description,
@@ -91,4 +102,14 @@ export const localBusinessJsonLd = {
       },
     })),
   },
+};
+
+export const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${siteUrl}/#website`,
+  url: siteUrl,
+  name: "Serene Home Care Services",
+  inLanguage: "en-KE",
+  publisher: { "@id": `${siteUrl}/#business` },
 };

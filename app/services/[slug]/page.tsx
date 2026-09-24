@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { Icon } from "../../components";
 import { Callout, SiteShell } from "../../site-shell";
 import { services } from "../../site-data";
-import { pageMetadata } from "../../seo";
+import { pageMetadata, siteUrl } from "../../seo";
 
 type ServicePageProps = { params: Promise<{ slug: string }> };
 
@@ -29,9 +29,43 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   const service = services.find((item) => item.slug === slug);
   if (!service) notFound();
 
+  const serviceUrl = `${siteUrl}/services/${service.slug}`;
+  const structuredData = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": `${serviceUrl}/#service`,
+      name: service.title,
+      description: service.summary,
+      serviceType: service.title,
+      url: serviceUrl,
+      areaServed: { "@type": "City", name: "Eldoret" },
+      provider: { "@id": `${siteUrl}/#business` },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+        { "@type": "ListItem", position: 2, name: "Services", item: `${siteUrl}/services` },
+        { "@type": "ListItem", position: 3, name: service.title, item: serviceUrl },
+      ],
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: service.faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: { "@type": "Answer", text: faq.answer },
+      })),
+    },
+  ];
+
   return (
     <SiteShell>
       <main id="main-content">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
         <section className="service-hero">
           <div className="container service-hero-grid">
             <div><p className="eyebrow">Serene home care · Eldoret</p><h1>{service.title}</h1><p className="lead">{service.summary}</p></div>

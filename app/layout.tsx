@@ -10,7 +10,7 @@ import "@fontsource/roboto/latin-600.css";
 import "@fontsource/roboto/latin-700.css";
 import "./globals.css";
 import { MetaPixel } from "./meta-pixel";
-import { localBusinessJsonLd, pageMetadata, siteUrl } from "./seo";
+import { localBusinessJsonLd, pageMetadata, siteUrl, websiteJsonLd } from "./seo";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -30,9 +30,6 @@ export const metadata: Metadata = {
     "home nursing Eldoret",
     "Serene Home Care Services",
   ],
-  other: {
-    "codex-preview": "development",
-  },
   icons: {
     icon: "/serene-profile-logo.png",
     shortcut: "/serene-profile-logo.png",
@@ -56,6 +53,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
         {children}
         <MetaPixel />
