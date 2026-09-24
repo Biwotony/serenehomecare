@@ -99,31 +99,31 @@ p { margin-bottom: 18px; }
 .text-link { display: inline-flex; align-items: center; gap: 8px; color: var(--royal); font-weight: 600; }
 .text-link:hover { color: var(--navy); }
 
-.hero { --hero-grad-start: #EEF6FF; --hero-grad-mid: #D3EAF9; --hero-grad-end: #C2EBF0; position: relative; display: flex; min-height: clamp(500px, 68vh, 640px); padding: 104px 0 112px; align-items: center; background: #D3EAF9; background: linear-gradient(135deg, var(--hero-grad-start) 0%, var(--hero-grad-mid) 50%, var(--hero-grad-end) 100%); color: #2B3B55; }
-.hero-grid { position: relative; display: grid; grid-template-columns: minmax(0, 760px); justify-content: center; align-items: center; }
-.hero-copy { min-width: 0; text-align: center; }
-.hero h1 { color: #0B2C66; }
-.hero .eyebrow, .hero-copy .lead { color: #2B3B55; }
-.hero .eyebrow span { background: #0B2C66; }
-.hero-copy .lead { max-width: 670px; margin-inline: auto; }
-.hero-actions { margin-top: 32px; justify-content: center; }
+.hero { --hero-grad-start: #EEF6FF; --hero-grad-mid: #D3EAF9; --hero-grad-end: #C2EBF0; position: relative; display: flex; min-height: clamp(560px, 72vh, 720px); padding: 110px 0 118px; align-items: center; background-color: #0B2C66; background-image: linear-gradient(90deg, rgba(4,24,59,.95) 0%, rgba(4,31,72,.88) 36%, rgba(4,31,72,.48) 62%, rgba(4,31,72,.12) 100%), url("/images/serene-home-hero.webp"); background-position: center; background-size: cover; color: #fff; }
+.hero-grid { position: relative; display: grid; grid-template-columns: minmax(0, 680px); justify-content: start; align-items: center; }
+.hero-copy { min-width: 0; text-align: left; }
+.hero h1 { max-width: 650px; color: #fff; text-wrap: balance; }
+.hero .eyebrow, .hero-copy .lead { color: #f3f7fc; }
+.hero .eyebrow span { background: #fff; }
+.hero-copy .lead { max-width: 610px; margin-inline: 0; }
+.hero-actions { margin-top: 32px; justify-content: flex-start; }
 .hero-actions .button { scroll-margin-block: 100px; }
-.hero-actions .button-primary { background: #1565c0; }
-.hero-actions .button-primary:hover { background: #0B2C66; }
-.hero-actions .button-secondary { border-color: #0B2C66; background: transparent; color: #0B2C66; }
-.hero-actions .button-secondary:hover { background: #EEF6FF; }
-.hero :focus-visible { outline-color: #0B2C66; }
-.hero-assurance { display: flex; margin: 24px 0 0; align-items: flex-start; justify-content: center; gap: 9px; color: #2B3B55; font-size: .92rem; }
+.hero-actions .button-primary { background: #1565c0; box-shadow: 0 12px 28px rgba(0,0,0,.22); }
+.hero-actions .button-primary:hover { background: #2578d4; }
+.hero-actions .button-secondary { border-color: rgba(255,255,255,.75); background: rgba(255,255,255,.08); color: #fff; backdrop-filter: blur(5px); }
+.hero-actions .button-secondary:hover { background: rgba(255,255,255,.17); }
+.hero :focus-visible { outline-color: #fff; }
+.hero-assurance { display: flex; margin: 24px 0 0; align-items: flex-start; justify-content: flex-start; gap: 9px; color: #f3f7fc; font-size: .92rem; }
 .hero-assurance svg { flex: 0 0 auto; margin-top: 3px; color: currentColor; }
-/* Add a .hero-media sibling later to opt back into two columns. */
-@media (min-width: 861px) {
-  .hero-grid:has(> .hero-media) { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; }
-}
-html[data-contrast="true"] .hero { background: #fff; }
+html[data-contrast="true"] .hero { background: #fff; color: #001f52; }
+html[data-contrast="true"] .hero h1, html[data-contrast="true"] .hero .eyebrow, html[data-contrast="true"] .hero-copy .lead, html[data-contrast="true"] .hero-assurance { color: #001f52; }
+html[data-contrast="true"] .hero .eyebrow span { background: #001f52; }
+html[data-contrast="true"] .hero-actions .button-secondary { border-color: #001f52; background: #fff; color: #001f52; backdrop-filter: none; }
 /* Dock the homepage accessibility control beside, not above, mobile contact actions. */
 @media (max-width: 860px) {
   body:has(.hero) .accessibility-tools { right: 8px; bottom: 8px; }
   body:has(.hero) .mobile-action-bar { padding-right: 66px; }
+  .hero { min-height: 650px; background-image: linear-gradient(90deg, rgba(4,24,59,.9), rgba(4,31,72,.74)), url("/images/serene-home-hero.webp"); background-position: 68% center; }
 }
 .icon-tile { display: inline-grid; width: 48px; height: 48px; place-items: center; border-radius: 12px; background: #dff3f4; color: #007d87; }
 
@@ -400,7 +400,10 @@ html[data-contrast="true"] .section-soft, html[data-contrast="true"] .profile-di
   .header-cta { min-height: 44px; padding: 9px 11px !important; font-size: .8rem; }
   .brand-mark { width: 39px; height: 39px; }
   .brand-copy strong { font-size: 1.08rem; }
-  .hero { padding-top: 62px; }
+  .hero { min-height: 630px; padding: 70px 0 92px; }
+  .hero-copy { text-align: center; }
+  .hero h1, .hero-copy .lead { margin-inline: auto; }
+  .hero-actions, .hero-assurance { justify-content: center; }
   .hero-actions, .button-group { flex-direction: column; }
   .hero-actions .button, .callout .button { width: 100%; }
   .service-grid, .feature-grid, .review-principles, .process-grid, .detail-grid, .two-column-copy, .comparison-grid, .resource-cards, .payment-steps, .fraud-guidance { grid-template-columns: 1fr; }
