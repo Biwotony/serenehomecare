@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Icon } from "../components";
 import { Callout, FeatureCard, PageIntro, SiteShell, TeamPortraits } from "../site-shell";
 import { pageMetadata } from "../seo";
@@ -13,6 +14,16 @@ export default function AboutPage() {
     <SiteShell>
       <main id="main-content">
         <PageIntro eyebrow="About Serene" title="Care that respects the person, the home and the family" description="Serene Home Care Services is a home-care provider with an office on Kenyatta Street in Eldoret, Kenya. We visit clients at home in Eldoret and surrounding areas, with 24-hour availability. Contact us on 0703 862 025 to discuss the support you need." />
+        <section className="page-visual-section" aria-label="Care team illustration">
+          <div className="container">
+            <figure className="page-visual">
+              <div className="page-visual-frame">
+                <Image src="/images/serene-nursing-team-portrait.webp" alt="Illustrative portrait of a coordinated home-care nursing team" fill sizes="(max-width: 860px) 92vw, 1160px" unoptimized />
+              </div>
+              <figcaption>Illustrative care team image</figcaption>
+            </figure>
+          </div>
+        </section>
         <section className="section">
           <div className="container team-grid">
             <TeamPortraits />

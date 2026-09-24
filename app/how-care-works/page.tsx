@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { EnquiryForm, Icon } from "../components";
 import { PageIntro, SiteShell } from "../site-shell";
@@ -23,6 +24,16 @@ export default function HowCareWorksPage() {
     <SiteShell>
       <main id="main-content">
         <PageIntro eyebrow="How care works" title="A clear path from concern to the right support" description="Understand each decision, meet the proposed professional and approve the written plan before care begins." />
+        <section className="page-visual-section" aria-label="Care planning illustration">
+          <div className="container">
+            <figure className="page-visual">
+              <div className="page-visual-frame">
+                <Image src="/images/serene-team-care-planning.webp" alt="Illustrative scene of a home-care nursing team discussing a care plan together" fill sizes="(max-width: 860px) 92vw, 1160px" unoptimized />
+              </div>
+              <figcaption>Illustrative care team image</figcaption>
+            </figure>
+          </div>
+        </section>
         <section className="section">
           <div className="container journey-list">
             <article><span>01</span><div><Icon name="phone" /><h2>First conversation</h2><p>We ask who needs support, where in Eldoret they live, the broad care need and the best contact. The initial form does not request medical history.</p></div></article>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { RoutedForm } from "../components";
 import { FeatureCard, PageIntro, SiteShell } from "../site-shell";
 import { pageMetadata } from "../seo";
@@ -6,6 +7,32 @@ export const metadata = pageMetadata({ title: "Careers at Serene Home Care Servi
 
 export default function CareersPage() {
   return (
-    <SiteShell><main id="main-content"><PageIntro eyebrow="Careers in Eldoret" title="Bring skill, respect and accountability into every home" description="Serene welcomes introductions from care professionals who understand role boundaries, safeguarding, privacy and person-centred support." /><section className="section section-soft"><div className="container"><div className="section-heading centered"><p className="eyebrow">What we value</p><h2>Care standards come before availability</h2></div><div className="feature-grid"><FeatureCard icon="heart" title="Respectful care">Listen to the client, protect dignity and follow the agreed plan.</FeatureCard><FeatureCard icon="shield" title="Safe practice">Work only within your competence, report concerns and welcome supervision.</FeatureCard><FeatureCard icon="message" title="Clear communication">Keep accurate records and communicate without breaching confidentiality.</FeatureCard></div></div></section><section className="section"><div className="container form-page-grid"><div><p className="eyebrow">Before assignment</p><h2>What the selection process may include</h2><ol className="numbered-list"><li><span>01</span><p>Identity, availability and role discussion</p></li><li><span>02</span><p>Work-history and reference review</p></li><li><span>03</span><p>Qualification and registration checks where relevant</p></li><li><span>04</span><p>Safeguarding, confidentiality and conduct expectations</p></li><li><span>05</span><p>Role-specific interview, induction and assignment fit</p></li></ol></div><RoutedForm kind="career" /></div></section></main></SiteShell>
+    <SiteShell>
+      <main id="main-content">
+        <PageIntro eyebrow="Careers in Eldoret" title="Bring skill, respect and accountability into every home" description="Serene welcomes introductions from care professionals who understand role boundaries, safeguarding, privacy and person-centred support." />
+        <section className="page-visual-section" aria-label="Care team illustration">
+          <div className="container">
+            <figure className="page-visual">
+              <div className="page-visual-frame">
+                <Image src="/images/serene-nursing-team-walking.webp" alt="Illustrative scene of a home-care nursing team walking together" fill sizes="(max-width: 860px) 92vw, 1160px" unoptimized />
+              </div>
+              <figcaption>Illustrative care team image</figcaption>
+            </figure>
+          </div>
+        </section>
+        <section className="section section-soft">
+          <div className="container">
+            <div className="section-heading centered"><p className="eyebrow">What we value</p><h2>Care standards come before availability</h2></div>
+            <div className="feature-grid"><FeatureCard icon="heart" title="Respectful care">Listen to the client, protect dignity and follow the agreed plan.</FeatureCard><FeatureCard icon="shield" title="Safe practice">Work only within your competence, report concerns and welcome supervision.</FeatureCard><FeatureCard icon="message" title="Clear communication">Keep accurate records and communicate without breaching confidentiality.</FeatureCard></div>
+          </div>
+        </section>
+        <section className="section">
+          <div className="container form-page-grid">
+            <div><p className="eyebrow">Before assignment</p><h2>What the selection process may include</h2><ol className="numbered-list"><li><span>01</span><p>Identity, availability and role discussion</p></li><li><span>02</span><p>Work-history and reference review</p></li><li><span>03</span><p>Qualification and registration checks where relevant</p></li><li><span>04</span><p>Safeguarding, confidentiality and conduct expectations</p></li><li><span>05</span><p>Role-specific interview, induction and assignment fit</p></li></ol></div>
+            <RoutedForm kind="career" />
+          </div>
+        </section>
+      </main>
+    </SiteShell>
   );
 }
