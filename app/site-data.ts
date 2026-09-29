@@ -3,6 +3,11 @@ export const contact = {
   phoneHref: "+254703862025",
   whatsapp: "https://wa.me/254703862025",
   website: "serenehome.care",
+  websiteHref: "https://serenehome.care",
+  email: "hello@serenehome.care",
+  bookingsEmail: "bookings@serenehome.care",
+  careEmail: "care@serenehome.care",
+  careersEmail: "careers@serenehome.care",
   location: "Eldoret, Kenya",
   responseTime: "immediately",
 };
@@ -24,6 +29,7 @@ export type IconName =
   | "arrow"
   | "briefcase"
   | "document"
+  | "email"
   | "accessibility";
 
 export type Service = {

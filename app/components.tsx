@@ -36,6 +36,7 @@ export function Icon({ name, size = 24 }: { name: IconName; size?: number }) {
     arrow: <><path d="M5 12h14" /><path d="m13 6 6 6-6 6" /></>,
     briefcase: <><rect x="3" y="7" width="18" height="13" rx="2" /><path d="M8 7V4h8v3M3 12h18M10 12v2h4v-2" /></>,
     document: <><path d="M6 2h9l4 4v16H6Z" /><path d="M14 2v5h5M9 13h6M9 17h6" /></>,
+    email: <><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m4 7 8 6 8-6" /></>,
     accessibility: <><circle cx="12" cy="4" r="2" /><path d="M4 8h16M12 6v6M8 21l4-9 4 9" /></>,
   };
 
@@ -159,11 +160,11 @@ type EnquiryFormProps = {
   source?: string;
 };
 
-type ContactMethod = "WhatsApp" | "Phone call";
+type ContactMethod = "WhatsApp" | "Phone call" | "Email";
 
 export function EnquiryForm({ title = "Book a care assessment", compact = false, source = "website" }: EnquiryFormProps) {
   const [contactMethod, setContactMethod] = useState<ContactMethod>("WhatsApp");
-  const [sent, setSent] = useState<"whatsapp" | "phone" | null>(null);
+  const [sent, setSent] = useState<"whatsapp" | "phone" | "email" | null>(null);
 
   function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -182,6 +183,13 @@ export function EnquiryForm({ title = "Book a care assessment", compact = false,
       trackMetaEvent("Lead", { contact_method: "phone", source });
       setSent("phone");
       window.location.href = `tel:${contact.phoneHref}`;
+      return;
+    }
+
+    if (selectedMethod === "Email") {
+      trackMetaEvent("Lead", { contact_method: "email", source });
+      setSent("email");
+      window.location.href = `mailto:${contact.bookingsEmail}?subject=${encodeURIComponent("Care assessment request")}&body=${encodeURIComponent(message)}`;
       return;
     }
 
@@ -226,6 +234,7 @@ export function EnquiryForm({ title = "Book a care assessment", compact = false,
           >
             <option>WhatsApp</option>
             <option>Phone call</option>
+            <option>Email</option>
           </select>
         </label>
       </div>
@@ -234,11 +243,12 @@ export function EnquiryForm({ title = "Book a care assessment", compact = false,
         <span>I agree that Serene may contact me about this enquiry. I understand this form is not for emergencies.</span>
       </label>
       <button className="button button-primary button-wide" type="submit">
-        <Icon name={contactMethod === "Phone call" ? "phone" : "message"} size={20} />
-        {contactMethod === "Phone call" ? `Call ${contact.phoneDisplay}` : "Continue on WhatsApp"}
+        <Icon name={contactMethod === "Phone call" ? "phone" : contactMethod === "Email" ? "email" : "message"} size={20} />
+        {contactMethod === "Phone call" ? `Call ${contact.phoneDisplay}` : contactMethod === "Email" ? "Continue by email" : "Continue on WhatsApp"}
       </button>
       {sent === "whatsapp" && <p className="form-status" role="status">WhatsApp opened with your enquiry. If it did not open, call {contact.phoneDisplay}.</p>}
       {sent === "phone" && <p className="form-status" role="status">Your phone app should open to call {contact.phoneDisplay}.</p>}
+      {sent === "email" && <p className="form-status" role="status">Your email app should open a message to {contact.bookingsEmail}.</p>}
     </form>
   );
 }
@@ -295,12 +305,14 @@ type RoutedFormProps = {
 };
 
 export function RoutedForm({ kind }: RoutedFormProps) {
-  const [sent, setSent] = useState(false);
+  const [sent, setSent] = useState<"whatsapp" | "email" | null>(null);
   const career = kind === "career";
 
   function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    const submitter = (event.nativeEvent as SubmitEvent).submitter as HTMLButtonElement | null;
+    const route = submitter?.value === "email" ? "email" : "whatsapp";
     const lines = career
       ? [
           "Hello Serene, I am interested in working with your care team.",
@@ -318,11 +330,20 @@ export function RoutedForm({ kind }: RoutedFormProps) {
           "No patient-identifying or medical information was submitted through the website.",
         ];
     trackMetaEvent(career ? "Contact" : "Lead", {
-      contact_method: "whatsapp",
+      contact_method: route,
       source: career ? "career" : "professional_referral",
     });
+
+    if (route === "email") {
+      const recipient = career ? contact.careersEmail : contact.careEmail;
+      const subject = career ? "Career introduction" : "Professional referral enquiry";
+      window.location.href = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
+      setSent("email");
+      return;
+    }
+
     window.open(`${contact.whatsapp}?text=${encodeURIComponent(lines.join("\n"))}`, "_blank", "noopener,noreferrer");
-    setSent(true);
+    setSent("whatsapp");
   }
 
   return (
@@ -346,8 +367,12 @@ export function RoutedForm({ kind }: RoutedFormProps) {
         )}
       </div>
       <label className="consent-row"><input type="checkbox" required /><span>I agree that Serene may contact me about this submission and understand this channel is not for emergencies.</span></label>
-      <button className="button button-primary" type="submit"><Icon name="message" size={20} /> Send via WhatsApp</button>
-      {sent && <p className="form-status" role="status">WhatsApp opened with your details.</p>}
+      <div className="button-group">
+        <button className="button button-primary" type="submit" name="route" value="whatsapp"><Icon name="message" size={20} /> Send via WhatsApp</button>
+        <button className="button button-secondary" type="submit" name="route" value="email"><Icon name="email" size={20} /> Send via email</button>
+      </div>
+      {sent === "whatsapp" && <p className="form-status" role="status">WhatsApp opened with your details.</p>}
+      {sent === "email" && <p className="form-status" role="status">Your email app should open a message to {career ? contact.careersEmail : contact.careEmail}.</p>}
     </form>
   );
 }

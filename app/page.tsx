@@ -70,6 +70,7 @@ export default function Home() {
               <div className="contact-lines">
                 <a href={`tel:${contact.phoneHref}`}><Icon name="phone" /><span><small>Call</small>{contact.phoneDisplay}</span></a>
                 <a href={contact.whatsapp} target="_blank" rel="noreferrer"><Icon name="message" /><span><small>WhatsApp</small>Start a conversation</span></a>
+                <a href={`mailto:${contact.bookingsEmail}`}><Icon name="email" /><span><small>Email</small>{contact.bookingsEmail}</span></a>
                 <p><Icon name="home" /><span><small>Service area</small>{contact.location}</span></p>
               </div>
             </div>

@@ -36,11 +36,12 @@ test("renders production search metadata", async () => {
   const html = await response.text();
   assert.doesNotMatch(html, developmentPreviewMeta);
   assert.match(html, /<meta name="robots" content="index, follow/i);
-  assert.match(html, /rel="canonical" href="https:\/\/serene-home-care\.vercel\.app\/"/i);
-  assert.match(html, /property="og:image" content="https:\/\/serene-home-care\.vercel\.app\/serene-social-v2\.jpg"/i);
+  assert.match(html, /rel="canonical" href="https:\/\/serenehome\.care\/"/i);
+  assert.match(html, /property="og:image" content="https:\/\/serenehome\.care\/serene-social-v2\.jpg"/i);
   assert.match(html, /property="og:image:type" content="image\/jpeg"/i);
   assert.match(html, /"@type":"LocalBusiness"/i);
   assert.match(html, /"@type":"WebSite"/i);
+  assert.match(html, /mailto:hello@serenehome\.care/i);
 });
 
 test("serves crawl directives and a complete sitemap", async () => {
@@ -48,14 +49,14 @@ test("serves crawl directives and a complete sitemap", async () => {
   assert.equal(robotsResponse.status, 200);
   const robots = await robotsResponse.text();
   assert.match(robots, /User-Agent: \*/i);
-  assert.match(robots, /Sitemap: https:\/\/serene-home-care\.vercel\.app\/sitemap\.xml/i);
+  assert.match(robots, /Sitemap: https:\/\/serenehome\.care\/sitemap\.xml/i);
 
   const sitemapResponse = await request("/sitemap.xml");
   assert.equal(sitemapResponse.status, 200);
   const sitemap = await sitemapResponse.text();
   assert.match(sitemap, /<urlset/i);
-  assert.match(sitemap, /https:\/\/serene-home-care\.vercel\.app\/services\/post-hospital-recovery/i);
-  assert.match(sitemap, /<lastmod>2026-09-2[124]T/i);
+  assert.match(sitemap, /https:\/\/serenehome\.care\/services\/post-hospital-recovery/i);
+  assert.match(sitemap, /<lastmod>2026-09-2[149]T/i);
   assert.doesNotMatch(sitemap, /<priority>|<changefreq>/i);
 });
 

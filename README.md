@@ -2,7 +2,7 @@
 
 The official website for **Serene Home Care Services**, a 24-hour home-care provider serving Eldoret and surrounding areas in Kenya.
 
-[Visit the live website](https://serene-home-care.vercel.app) · [Call 0703 862 025](tel:+254703862025) · [WhatsApp Serene](https://wa.me/254703862025)
+[Visit the live website](https://serenehome.care) · [Email Serene](mailto:hello@serenehome.care) · [Call 0703 862 025](tel:+254703862025) · [WhatsApp Serene](https://wa.me/254703862025)
 
 ## About the website
 
@@ -99,10 +99,10 @@ The website supports these public environment variables:
 
 | Variable | Purpose | Default |
 | --- | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | Canonical site URL used by metadata, structured data, robots and the sitemap | `https://serene-home-care.vercel.app` |
+| `NEXT_PUBLIC_SITE_URL` | Canonical site URL used by metadata, structured data, robots and the sitemap | `https://serenehome.care` |
 | `NEXT_PUBLIC_META_PIXEL_ID` | Meta Pixel identifier loaded only after analytics consent | Serene's current Pixel ID |
 
-When `serenehome.care` is connected, set `NEXT_PUBLIC_SITE_URL=https://serenehome.care` in Vercel and redeploy.
+Production uses `NEXT_PUBLIC_SITE_URL=https://serenehome.care` in Vercel.
 
 ## Deployment
 
@@ -121,7 +121,8 @@ Before merging a public content change:
 - **Office:** Kenyatta Street, Eldoret, Kenya
 - **Service area:** Eldoret and surrounding areas
 - **Availability:** 24 hours
-- **Planned domain:** [serenehome.care](https://serenehome.care)
+- **Website:** [serenehome.care](https://serenehome.care)
+- **Email:** [hello@serenehome.care](mailto:hello@serenehome.care)
 
 ## Content and image note
 

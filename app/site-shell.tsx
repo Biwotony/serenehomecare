@@ -45,8 +45,9 @@ export function Footer() {
           <address>
             <p>{contact.location}<br />Visits and assessments by appointment</p>
             <a href={`tel:${contact.phoneHref}`}>{contact.phoneDisplay}</a>
+            <a href={`mailto:${contact.email}`}>{contact.email}</a>
             <a href={contact.whatsapp} target="_blank" rel="noreferrer">Chat on WhatsApp</a>
-            <span>{contact.website}</span>
+            <a href={contact.websiteHref}>{contact.website}</a>
           </address>
         </div>
       </div>

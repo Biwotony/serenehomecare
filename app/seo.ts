@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { contact, services } from "./site-data";
 
 export const siteUrl = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://serene-home-care.vercel.app"
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://serenehome.care"
 ).replace(/\/$/, "");
 
 const socialImage = {
@@ -71,6 +71,7 @@ export const localBusinessJsonLd = {
   description:
     "Professional, person-centred home care including recovery support, elderly care, home nursing, respite, rehabilitation and maternal support in Eldoret.",
   telephone: contact.phoneHref,
+  email: contact.email,
   address: {
     "@type": "PostalAddress",
     streetAddress: "Kenyatta Street",
@@ -84,6 +85,7 @@ export const localBusinessJsonLd = {
   contactPoint: {
     "@type": "ContactPoint",
     telephone: contact.phoneHref,
+    email: contact.email,
     contactType: "customer service",
     areaServed: "KE",
     availableLanguage: "English",
