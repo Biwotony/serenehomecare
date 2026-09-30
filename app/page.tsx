@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { EnquiryForm, Icon } from "./components";
 import { ServiceCard, SiteShell, TeamPortraits } from "./site-shell";
 import { contact, services } from "./site-data";
@@ -16,8 +17,17 @@ export default function Home() {
     <SiteShell>
       <main id="main-content">
         <section className="hero">
+          <Image
+            className="hero-background"
+            src="/images/serene-home-hero.webp"
+            alt=""
+            fill
+            priority
+            fetchPriority="high"
+            sizes="100vw"
+          />
           <div className="container hero-grid">
-            <div className="hero-copy fade-in">
+            <div className="hero-copy">
               <p className="eyebrow"><span /> Home care in Eldoret</p>
               <h1>Professional care in the comfort of home</h1>
               <p className="lead">Daily support and qualified nursing care, matched to your needs.</p>
