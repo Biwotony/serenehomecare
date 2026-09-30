@@ -117,7 +117,7 @@ export function MetaPixel() {
   return (
     <aside className="analytics-consent" aria-label="Analytics preferences">
       <div>
-        <strong>Help us improve Serene</strong>
+        <strong>So Serene works better for you</strong>
         <p>
           Allow Meta Pixel to show us which care pages and contact options are
           most useful. We never send your form details. Read our{" "}
