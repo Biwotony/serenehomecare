@@ -24,6 +24,7 @@ export default function Home() {
             fill
             priority
             fetchPriority="high"
+            quality={65}
             sizes="100vw"
           />
           <div className="container hero-grid">

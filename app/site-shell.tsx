@@ -81,7 +81,6 @@ export function TeamPortraits() {
             alt="Cerine C., CEO of Serene Home Care Services, wearing blue clinical scrubs"
             fill
             sizes="(max-width: 900px) 88vw, 36vw"
-            unoptimized
           />
         </div>
         <figcaption>
