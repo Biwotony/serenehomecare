@@ -117,16 +117,16 @@ export function MetaPixel() {
   return (
     <aside className="analytics-consent" aria-label="Analytics preferences">
       <div>
-        <strong>Help us improve our advertising</strong>
+        <strong>Help us improve Serene</strong>
         <p>
-          With your permission, Meta Pixel measures page visits and enquiry
-          actions. It does not receive the details you enter in a form. Read our{" "}
+          Allow Meta Pixel to show us which care pages and contact options are
+          most useful. We never send your form details. Read our{" "}
           <Link href="/privacy">privacy notice</Link>.
         </p>
       </div>
       <div className="analytics-consent-actions">
         <button type="button" className="button button-primary" onClick={() => chooseConsent("granted")}>
-          Allow analytics
+          Allow insights
         </button>
         <button type="button" className="button button-quiet" onClick={() => chooseConsent("denied")}>
           Essential only
