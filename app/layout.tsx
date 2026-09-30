@@ -1,11 +1,28 @@
 import type { Metadata } from "next";
-import "@fontsource/lato/latin-400.css";
-import "@fontsource/lato/latin-700.css";
-import "@fontsource/montserrat/latin-700.css";
-import "@fontsource/montserrat/latin-800.css";
+import localFont from "next/font/local";
 import "./globals.css";
 import { MetaPixel } from "./meta-pixel";
 import { localBusinessJsonLd, pageMetadata, siteUrl, websiteJsonLd } from "./seo";
+
+const lato = localFont({
+  src: [
+    { path: "./fonts/lato-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/lato-latin-700-normal.woff2", weight: "700", style: "normal" },
+  ],
+  variable: "--font-lato",
+  display: "swap",
+  preload: false,
+});
+
+const montserrat = localFont({
+  src: [
+    { path: "./fonts/montserrat-latin-700-normal.woff2", weight: "700", style: "normal" },
+    { path: "./fonts/montserrat-latin-800-normal.woff2", weight: "800", style: "normal" },
+  ],
+  variable: "--font-montserrat",
+  display: "swap",
+  preload: false,
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -43,7 +60,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-KE">
+    <html lang="en-KE" className={`${lato.variable} ${montserrat.variable}`}>
       <body>
         <script
           type="application/ld+json"
