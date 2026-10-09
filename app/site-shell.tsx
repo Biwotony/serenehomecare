@@ -24,7 +24,7 @@ export function Footer() {
           <p>Professional, person-centred home care planned around each client’s needs in Eldoret.</p>
           <p className="response-note"><Icon name="clock" size={19} /> Enquiries answered {contact.responseTime}</p>
         </div>
-        <div>
+        <div className="footer-services">
           <h2>Care services</h2>
           <ul>
             {services.map((service) => <li key={service.slug}><Link href={`/services/${service.slug}`}>{service.shortTitle}</Link></li>)}

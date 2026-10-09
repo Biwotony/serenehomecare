@@ -440,6 +440,7 @@ html[data-contrast="true"] .section-soft, html[data-contrast="true"] .profile-di
   .journey-list article > span { width: 52px; height: 52px; }
   .article-layout { gap: 25px; }
   .footer-grid { grid-template-columns: 1fr; }
+  .footer-services { display: none; }
   .site-footer { padding-top: 55px; }
   .accessibility-panel { width: 230px; }
 }
