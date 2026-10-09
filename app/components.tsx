@@ -145,15 +145,6 @@ export function AccessibilityTools() {
   );
 }
 
-export function MobileActionBar() {
-  return (
-    <div className="mobile-action-bar" aria-label="Quick contact">
-      <a href={`tel:${contact.phoneHref}`}><Icon name="phone" size={21} /> Call</a>
-      <a href={contact.whatsapp} target="_blank" rel="noreferrer"><Icon name="message" size={21} /> WhatsApp</a>
-    </div>
-  );
-}
-
 type EnquiryFormProps = {
   title?: string;
   compact?: boolean;

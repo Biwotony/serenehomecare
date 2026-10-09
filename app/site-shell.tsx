@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { AccessibilityTools, Header, Icon, Logo, MobileActionBar } from "./components";
+import { AccessibilityTools, Header, Icon, Logo } from "./components";
 import { contact, IconName, services } from "./site-data";
 
 export function SiteShell({ children }: { children: React.ReactNode }) {
@@ -10,7 +10,6 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
       {children}
       <Footer />
       <AccessibilityTools />
-      <MobileActionBar />
     </>
   );
 }
