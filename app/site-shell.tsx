@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { AccessibilityTools, Header, Icon, Logo, MobileActionBar } from "./components";
 import { contact, IconName, services } from "./site-data";
@@ -68,27 +67,6 @@ export function PageIntro({ eyebrow, title, description }: { eyebrow: string; ti
         <p className="lead">{description}</p>
       </div>
     </section>
-  );
-}
-
-export function TeamPortraits() {
-  return (
-    <div className="team-portraits" aria-label="Serene leadership">
-      <figure className="team-member-card">
-        <div className="team-member-photo">
-          <Image
-            src="/images/serene-team-member-2.webp"
-            alt="Cerine C., CEO of Serene Home Care Services, wearing blue clinical scrubs"
-            fill
-            sizes="(max-width: 900px) 88vw, 36vw"
-          />
-        </div>
-        <figcaption>
-          <Icon name="users" size={18} />
-          <span><strong>Cerine C.</strong><small>CEO</small></span>
-        </figcaption>
-      </figure>
-    </div>
   );
 }
 

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Icon } from "../components";
-import { Callout, FeatureCard, PageIntro, SiteShell, TeamPortraits } from "../site-shell";
+import { Callout, FeatureCard, PageIntro, SiteShell } from "../site-shell";
 import { pageMetadata } from "../seo";
 
 export const metadata = pageMetadata({
@@ -24,13 +24,12 @@ export default function AboutPage() {
           </div>
         </section>
         <section className="section">
-          <div className="container team-grid">
-            <TeamPortraits />
-            <div className="team-copy">
+          <div className="container team-grid team-grid-text-only">
+            <div className="team-copy team-copy-wide">
               <p className="eyebrow">Our team approach</p>
               <h2>The client should know who is coming and why</h2>
               <p>Before ongoing care, Serene explains the proposed professional’s name, role, verified qualifications or registration where relevant, tasks and supervision.</p>
-              <ul className="check-list">
+              <ul className="check-list team-assurances">
                 <li><Icon name="check" size={19} /><span>Introduction before ongoing care</span></li>
                 <li><Icon name="check" size={19} /><span>Role boundaries recorded in the plan</span></li>
                 <li><Icon name="check" size={19} /><span>Family communication follows client consent</span></li>

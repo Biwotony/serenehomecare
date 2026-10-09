@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { EnquiryForm, Icon } from "./components";
-import { ServiceCard, SiteShell, TeamPortraits } from "./site-shell";
+import { ServiceCard, SiteShell } from "./site-shell";
 import { contact, services } from "./site-data";
 import { pageMetadata } from "./seo";
 
@@ -53,9 +53,8 @@ export default function Home() {
         </section>
 
         <section className="section team-section" id="team">
-          <div className="container team-grid">
-            <TeamPortraits />
-            <div className="team-copy">
+          <div className="container team-grid team-grid-text-only">
+            <div className="team-copy team-copy-wide">
               <p className="eyebrow">Our care team</p>
               <h2>Know who is coming to your home</h2>
               <p>You should feel confident about every person who enters your home. Before care begins, we make the introduction and explain exactly what to expect.</p>
