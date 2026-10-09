@@ -47,8 +47,9 @@ export default function Home() {
               <div><p className="eyebrow">Our services</p><h2>Care matched to the person</h2></div>
             </div>
             <div className="service-grid">
-              {services.map((service) => <ServiceCard key={service.slug} service={service} />)}
+              {services.map((service, index) => <ServiceCard key={service.slug} service={service} className={index >= 3 ? "home-service-secondary" : ""} />)}
             </div>
+            <Link className="button button-secondary mobile-services-link" href="/services">View all six services <Icon name="arrow" size={18} /></Link>
           </div>
         </section>
 

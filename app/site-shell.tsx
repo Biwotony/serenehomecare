@@ -69,11 +69,12 @@ export function PageIntro({ eyebrow, title, description }: { eyebrow: string; ti
   );
 }
 
-export function ServiceCard({ service }: { service: (typeof services)[number] }) {
+export function ServiceCard({ service, className = "" }: { service: (typeof services)[number]; className?: string }) {
   const prominenceClass = service.prominence ? ` service-card-${service.prominence}` : "";
+  const additionalClass = className ? ` ${className}` : "";
 
   return (
-    <article className={`service-card${prominenceClass}`}>
+    <article className={`service-card${prominenceClass}${additionalClass}`}>
       <div className="service-card-top">
         <span className="icon-tile"><Icon name={service.icon} /></span>
         {service.badge ? <span className="service-badge">{service.badge}</span> : null}
